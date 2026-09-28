@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dengue Report Q&amp;A</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <div class="brand">
+        <span class="brand-mark">Ae</span>
+        <div>
+          <h1>Dengue Report Q&amp;A</h1>
+          <p>Upload a surveillance report, then ask questions answered strictly from its contents.</p>
+        </div>
+      </div>
+      <div class="status" id="kb-status">
+        <span class="dot" id="status-dot"></span>
+        <span id="status-text">Checking connection…</span>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel chat-panel">
+        <div class="chat-heading">
+          <h2>Ask about the report</h2>
+          <span class="chat-hint">Use + to switch reports</span>
+        </div>
+        <input type="file" id="file-input" accept=".pdf,.txt,.docx,.doc,.csv" hidden />
+        <div class="ingestion-bar" id="ingestion-bar" hidden>
+          <div class="ingestion-label">
+            <span id="ingestion-text">Preparing report…</span>
+            <strong id="ingestion-percent">0%</strong>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+        </div>
+        <div class="chat-log" id="chat-log">
+          <div class="chat-empty" id="chat-empty">
+            Upload a report, then ask something like<br />
+            <em>“What was the total number of confirmed cases?”</em>
+          </div>
+        </div>
+        <form class="chat-input-row" id="chat-form">
+          <button type="button" class="icon-btn" id="upload-trigger" title="Upload a new report" aria-label="Upload a new report">+</button>
+          <input type="text" id="question-input" placeholder="Ask a question about the uploaded report…" autocomplete="off" />
+          <button type="submit" class="btn primary" id="ask-btn">Ask</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
